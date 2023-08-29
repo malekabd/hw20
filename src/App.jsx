@@ -1,15 +1,18 @@
 import { AppLayout } from "./AppLayout";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CheckOut from "./CheckOut";
+import { CartProvider } from "./CartContext";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route index element={<AppLayout />} />
+      <CartProvider>
+        <Routes>
+          <Route index element={<AppLayout />} />
 
-        <Route path="/checkout" element={<CheckOut />} />
-        <Route path="*" element={<h1>nothing to render</h1>} />
-      </Routes>
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="*" element={<h1>nothing to render</h1>} />
+        </Routes>
+      </CartProvider>
     </BrowserRouter>
   );
 }
