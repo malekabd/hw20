@@ -8,7 +8,7 @@ export const TshirtList = () => {
   ];
 
   return (
-    <div>
+    <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
       {database.map((item) => (
         <Tshirt name={item.name} price={item.price} key={item.id} />
       ))}

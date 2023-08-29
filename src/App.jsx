@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CheckOut from "./CheckOut";
 import { CartProvider } from "./CartContext";
 function App() {
+  
   return (
     <BrowserRouter>
       <CartProvider>

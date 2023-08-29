@@ -10,8 +10,14 @@ function CheckOut() {
   return (
     <>
       <div>checkouts</div>
-      <div>name {cart[0].name}</div>
-      <div>price {cart[0].price}</div>
+      {cart.map((c) => {
+        return (
+          <>
+            <div>name {c.name}</div>
+            <div>price {c.price}</div>
+          </>
+        );
+      })}
     </>
   );
 }
