@@ -7,6 +7,7 @@ function CheckOut() {
   console.log(cart);
   const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
   console.log(totalPrice);
+
   return (
     <>
       <div>checkouts</div>

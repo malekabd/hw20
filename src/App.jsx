@@ -2,11 +2,12 @@ import { AppLayout } from "./AppLayout";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CheckOut from "./CheckOut";
 import { CartProvider } from "./CartContext";
+import DashBoard from "./DashBoard";
 function App() {
-  
   return (
     <BrowserRouter>
       <CartProvider>
+        <DashBoard />
         <Routes>
           <Route index element={<AppLayout />} />
 

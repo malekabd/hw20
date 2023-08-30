@@ -2,15 +2,12 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 
 export const Tshirt = (props) => {
-  const [cart, setCart] = useContext(CartContext);
+  const [cart, setCart, state, incBlue, incRed, incYellow] =
+    useContext(CartContext);
 
-  const addToCart = () => {
-    const tshirt = { name: props.name, price: props.price };
-    setCart((currentState) => [...currentState, tshirt]);
-  };
   const CName = props.name.split(" ")[0];
-  console.log(CName);
-  console.log(CName == "blue");
+
+  console.log(state);
   return (
     <>
       <div className="col ">
@@ -33,8 +30,21 @@ export const Tshirt = (props) => {
               <small className="text-muted fw-light"></small>
             </h1>
             <ul className="list-unstyled mt-3 mb-4">
-              <li>{props.name}</li>
-              <li>{props.price}</li>
+              {CName === "blue" ? (
+                <img src="../imges/blue.jpg" width={197} height={255} />
+              ) : (
+                ""
+              )}
+              {CName === "yellow" ? (
+                <img src="../imges/yellow.jpg" width={197} height={255} />
+              ) : (
+                ""
+              )}
+              {CName === "red" ? (
+                <img src="../imges/red.jpg" width={197} height={255} />
+              ) : (
+                ""
+              )}
             </ul>
             <button
               className={`w-100 btn  btn-lg btn-lg btn-${
@@ -46,7 +56,16 @@ export const Tshirt = (props) => {
                   ? "warning"
                   : ""
               }`}
-              onClick={addToCart}
+              onClick={() => {
+                //    addToCart,
+                CName == "blue"
+                  ? incBlue()
+                  : CName == "red"
+                  ? incRed()
+                  : CName == "yellow"
+                  ? incYellow()
+                  : null;
+              }}
             >
               {" "}
               Add to Cart {props.price} $
@@ -54,26 +73,6 @@ export const Tshirt = (props) => {
           </div>
         </div>
       </div>
-
-      {/* <div>
-        <h2>{props.name}</h2>
-        <h4>{props.price}</h4>
-        <button
-          className={`w-100 btn  btn-lg btn-lg btn-${
-            CName == "blue"
-              ? "primary"
-              : CName == "red"
-              ? "danger"
-              : CName == "yellow"
-              ? "warning"
-              : ""
-          }`}
-          onClick={addToCart}
-        >
-          Add to cart
-        </button>
-        <hr />
-      </div> */}
     </>
   );
 };
