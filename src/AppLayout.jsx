@@ -3,7 +3,7 @@ import { Cart } from "./Cart";
 
 export function AppLayout() {
   return (
-    <div>
+    <div >
       <TshirtList />
       <Cart />
     </div>

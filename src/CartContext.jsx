@@ -30,13 +30,14 @@ export const CartProvider = (props) => {
         };
     }
   }
+
   const initialState = {
     cBlue: 0,
     cYellow: 0,
     cRed: 0,
-    pBlue: 18.99,
-    pYellow: 24.99,
-    pRed: 10.99,
+    pBlue: 19,
+    pYellow: 25,
+    pRed: 11,
     total: 0,
     totalPrice: 0,
   };
