@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { useForm } from "react-hook-form";
 function CheckOut() {
-  console.log("hello");
+
   const [cart, setCart, state] = useContext(CartContext);
   const emailValidator =
     /^[a-z0-9]([a-z0-9_\-\\.]*)@([a-z0-9_\-\\.]*)(\.[a-z]{2,4}(\.[a-z]{2}){0,2})$/;
 
   const { register, handleSubmit, formState, watch } = useForm();
   const { errors } = formState;
-  console.log(state);
+
   function onSubmit() {
     alert("data was submitted");
   } //third Step

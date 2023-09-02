@@ -28,6 +28,11 @@ export const CartProvider = (props) => {
           total: state.total + 1,
           totalPrice: state.totalPrice + state.pRed,
         };
+      case "logIn":
+        return {
+          ...state,
+          isLoggedIn: !state.isLoggedIn,
+        };
     }
   }
 
@@ -40,6 +45,9 @@ export const CartProvider = (props) => {
     pRed: 11,
     total: 0,
     totalPrice: 0,
+    isLoggedIn: false,
+    emailAddress: "maleksulaiman1@gmail.com",
+    passWord: "aaAA12@sa",
   };
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
@@ -52,10 +60,13 @@ export const CartProvider = (props) => {
   function incYellow() {
     dispatch({ type: "yellow" });
   }
+  function logIn() {
+    dispatch({ type: "logIn" });
+  }
 
   return (
     <CartContext.Provider
-      value={[cart, setCart, state, incBlue, incRed, incYellow]}
+      value={[cart, setCart, state, incBlue, incRed, incYellow, logIn]}
     >
       {props.children}
     </CartContext.Provider>

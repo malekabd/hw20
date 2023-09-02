@@ -7,7 +7,6 @@ export const Tshirt = (props) => {
 
   const CName = props.name.split(" ")[0];
 
-  console.log(state);
   return (
     <>
       <div className="col ">

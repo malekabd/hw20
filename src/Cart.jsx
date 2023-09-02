@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
 
 export const Cart = () => {
   const [cart, setCart, state] = useContext(CartContext);
@@ -23,14 +24,15 @@ export const Cart = () => {
             ""
           )}
           <br />
-          <button
+
+          <Button
             onClick={() => {
               if (!state.total) return alert("Please add Itmes to the Cart");
               navigate("./checkout");
             }}
           >
             CheckOut
-          </button>
+          </Button>
         </div>
       ) : (
         ""

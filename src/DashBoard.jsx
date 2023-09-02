@@ -1,5 +1,9 @@
-import { FaBeer } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
+import { Link } from "react-router-dom";
 function DashBoard() {
+  const [cart, setCart, state] = useContext(CartContext);
+
   return (
     <>
       <div className="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
@@ -29,9 +33,13 @@ function DashBoard() {
           >
             Support
           </a>
-          <a className="py-2 link-body-emphasis text-decoration-none" href="#">
-            Login
-          </a>
+          <span className="py-2 link-body-emphasis text-decoration-none">
+            {!state.isLoggedIn ? (
+              <Link to="/login">Login</Link>
+            ) : (
+              <div onClick={() => console.log("hello")}>Name</div>
+            )}
+          </span>
         </nav>
       </div>
     </>
