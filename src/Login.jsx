@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Login() {
@@ -17,7 +17,8 @@ function Login() {
   function onSubmit() {
     if (state.emailAddress == emailAddress && state.password == password) {
       openModal();
-      navigate("/checkout");
+      navigate("/");
+      logIn();
     } else {
       toast.warn("user Not found", {
         position: "top-right",
@@ -120,8 +121,16 @@ function Login() {
         <button type="submit" className="btn btn-primary w-100 py-2">
           Sign in
         </button>
-        <p className="mt-5 mb-3 text-body-secondary">© 2017–2023</p>
       </form>
+      <div style={{ paddingTop: "10px" }} onClick={openModal}>
+        Register a new Account ?
+        <Link to="/register">
+          <u>
+            <b> Click here.</b>
+          </u>
+        </Link>
+      </div>
+      <p className="mt-5 mb-3 text-body-secondary">© 2017–2023</p>
       <ToastContainer
         position="top-left"
         autoClose={3000}
