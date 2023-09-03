@@ -33,6 +33,11 @@ export const CartProvider = (props) => {
           ...state,
           isLoggedIn: !state.isLoggedIn,
         };
+      case "openModal":
+        return {
+          ...state,
+          isModalOpen: !state.isModalOpen,
+        };
     }
   }
 
@@ -44,10 +49,11 @@ export const CartProvider = (props) => {
     pYellow: 25,
     pRed: 11,
     total: 0,
+    password: "aaAA12@sa!",
     totalPrice: 0,
     isLoggedIn: false,
     emailAddress: "maleksulaiman1@gmail.com",
-    passWord: "aaAA12@sa",
+    isModalOpen: false,
   };
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
@@ -63,10 +69,22 @@ export const CartProvider = (props) => {
   function logIn() {
     dispatch({ type: "logIn" });
   }
+  function openModal() {
+    dispatch({ type: "openModal" });
+  }
 
   return (
     <CartContext.Provider
-      value={[cart, setCart, state, incBlue, incRed, incYellow, logIn]}
+      value={[
+        cart,
+        setCart,
+        state,
+        incBlue,
+        incRed,
+        incYellow,
+        logIn,
+        openModal,
+      ]}
     >
       {props.children}
     </CartContext.Provider>
